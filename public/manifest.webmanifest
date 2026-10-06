@@ -1,0 +1,9 @@
+{
+  "name": "Knitty Maa Manager",
+  "short_name": "Knitty Maa",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#faf7f5",
+  "theme_color": "#b4537a",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
