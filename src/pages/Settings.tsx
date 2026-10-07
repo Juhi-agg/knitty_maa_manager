@@ -42,7 +42,7 @@ function BusinessSettings() {
 function CloudSync() {
   const sync = useSync();
   const cfg = getConfig();
-  const [url, setUrl] = useState(cfg?.url ?? '');
+  const [url, setUrl] = useState(cfg?.url ?? ((import.meta.env.VITE_SUPABASE_URL as string | undefined) || ''));
   const [key, setKey] = useState(cfg?.anonKey ?? '');
   const [email, setEmail] = useState('');
   const [pw, setPw] = useState('');
@@ -81,11 +81,11 @@ function CloudSync() {
         <>
           <p className="small muted" style={{ marginTop: 0 }}>
             Sync uses a free Supabase project. Create one at supabase.com, run <code>supabase/schema.sql</code> from this app's repository in its SQL editor,
-            then paste the Project URL and the anon public key (Project Settings → API).
+            then paste the Project URL and the publishable key (Project Settings → API Keys; older projects call it the “anon public” key).
           </p>
           <div className="form">
             <Field label="Project URL" full><input value={url} onChange={(e) => setUrl(e.target.value.trim())} placeholder="https://xxxx.supabase.co" /></Field>
-            <Field label="Anon public key" full><input value={key} onChange={(e) => setKey(e.target.value.trim())} placeholder="eyJhbGciOi…" /></Field>
+            <Field label="Publishable / anon key" full><input value={key} onChange={(e) => setKey(e.target.value.trim())} placeholder="sb_publishable_… or eyJhbGciOi…" /></Field>
           </div>
           <div className="row" style={{ marginTop: 12 }}>
             <button className="btn primary" disabled={!url || !key} onClick={() => { saveConfig({ url, anonKey: key }); setEditCfg(false); }}>Connect</button>

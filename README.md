@@ -43,7 +43,7 @@ On your phone, open the site and use “Add to Home screen” to get an app icon
 
 1. Create a free account and project at [supabase.com](https://supabase.com).
 2. In the project, open **SQL Editor → New query**, paste the contents of [`supabase/schema.sql`](supabase/schema.sql), and click **Run**.
-3. Open **Project Settings → API** and copy the **Project URL** and the **anon public** key.
+3. Open **Project Settings → API Keys** and copy the **publishable** key (older projects call it **anon public**). This project's URL, `https://hppsgfcfrhmlclxqgdol.supabase.co`, is already built in via `.env.production`. Paste the key there too, and no device will need to enter anything.
 4. In the app, go to **Settings → Cloud sync**, paste both, click **Connect**, then **Create account** (and confirm the email Supabase sends).
 5. On your other devices, open the app, paste the same URL and key, and **Sign in**.
 
